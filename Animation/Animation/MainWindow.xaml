@@ -1,0 +1,27 @@
+﻿<Window x:Class="Animation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+
+    <Window.Resources>
+        <Storyboard x:Key="OnClick1">
+            <DoubleAnimation Storyboard.TargetName="rectangle"
+                     Storyboard.TargetProperty="Opacity"
+                     From="0"
+                     To="1"
+                     RepeatBehavior="10x"
+                     AutoReverse="True"
+                     Duration="0:0:0.1"/>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="button">
+            <BeginStoryboard Storyboard="{StaticResource OnClick1}"/>
+        </EventTrigger>
+    </Window.Triggers>
+
+    <Grid x:Name="LayoutRoot">
+        <Rectangle x:Name="rectangle" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35" Margin="129,166,0,0" Stroke="Black" VerticalAlignment="Top" Width="73"/>
+        <Button x:Name="button" Content="Button" Margin="272,158,126,0" Height="78" VerticalAlignment="Top"/>
+    </Grid>
+    </Window>
